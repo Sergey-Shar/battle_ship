@@ -1,0 +1,32 @@
+{
+  "name": "battle_ship",
+  "version": "1.0.0",
+  "description": "Test task. Development of the game battle ship.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack server",
+    "build": "webpack  --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergey-Shar/battle_ship.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Sergey <sergeihar82@mail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergey-Shar/battle_ship/issues"
+  },
+  "homepage": "https://github.com/Sergey-Shar/battle_ship#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "wepack-cli": "^0.0.1-security"
+  }
+}

@@ -73,6 +73,7 @@ html {
     background-color: rgba(0, 55, 255, 0.45);
     height: 32rem;
     width: 32rem;
+    cursor: grabbing;
 }
 
 .ship__row-1 {}

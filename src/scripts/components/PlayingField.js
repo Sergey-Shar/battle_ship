@@ -1,3 +1,5 @@
+import { isUnderPoint } from "../utils";
+
 export class Field {
     ships = [];
     shots = [];
@@ -61,9 +63,24 @@ export class Field {
         if (this.ships.includes(ship)) {
             return false;
         }
-        this.ships.push(ship);
-        return true;
+       this.addShipInDock(ship)
+
+       this.ships.push(ship);
+            return true;
     };
+
+      addShipInDock(ship) {
+          this.dock.append(ship.div)
+         if (ship.placed){
+         }  else {
+             ship.div.style.left = `${ship.startX}rem`
+             ship.div.style.top = `${ship.startY}rem`
+         }
+      }
+
+      isUnder (point){
+          return isUnderPoint(point, this.field)
+      }
 
     removeShip(ship) {
         if (!this.ships.includes(ship)) {

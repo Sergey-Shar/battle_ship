@@ -1,18 +1,11 @@
 import style from  '../styles/style.css';
 import { App } from './components/App';
-
-
-document.addEventListener("DOMContentLoaded", App);
-
+import { Preparation } from './states/Preparation';
 
 
 
-// const mouse = new Mouse(document.body)
+const app = new App({
+    preparation : Preparation
+})
+app.start('preparation')
 
-// const state = () => {
-//         requestAnimationFrame(state)
-//         console.log(mouse.left, mouse.pLeft)
-//         mouse.changesState()
-// }
-
-// requestAnimationFrame(state)

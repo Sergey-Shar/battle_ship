@@ -7,3 +7,9 @@ export const getRandomFrom = (...args) => {
     return args(index)
 }
 
+export const isUnderPoint = (point, item) => {
+    const { left, top, width, height } = item.getBoundingClientRect() 
+    const { x, y } = point
+    return left <= x && x <= left + width && top <= y && y <= top + height
+}
+

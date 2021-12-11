@@ -62,6 +62,7 @@ export class Mouse {
         this.pUnder = this.under;
         this.pLeft = this.left;
         this.pDeta = this.delta;
+        this.delta = 0;
     }
     
 

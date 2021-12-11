@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Battle ship</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 class="header__title">Battle Ship</h1>
+        </header>
+        <div class="app">
+            <div class="playing-field" data-side='player'></div>
+            <div class="app__menu">
+                <div class="app__buttons" data-scene="preparation">
+                    <button class="app__btn" data-computer="simle" disabled>играть против слабого</button>
+                    <button class="app__btn" data-computer="middle" disabled>играть против среднего</button>
+                    <button class="app__btn" data-computer="hard" disabled>играть против сильного</button>
+                    <button class="app__btn" data-type="random" disabled>играть против случайного</button>
+                    <button class="app__btn" data-type="chllenge" disabled>вызвать на бой </button>
+                    <button class="app__btn" data-action="manually">расставить корабли вручную</button>
+                    <button class="app__btn" data-action="randomize">расставить корабли случайно</button>
+                </div>
+            </div>
+            <div class="playing-field" data-side='opponent'></div>
+        </div>
+    </div>
+    <div>
+    </div>
 </body>
+
 </html>

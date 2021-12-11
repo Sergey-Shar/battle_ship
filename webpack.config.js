@@ -3,8 +3,8 @@ const HTMLPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 
+
 module.exports = {
-    mode: 'development',
     entry: {
         main: './src/scripts/index.js',
     },
@@ -19,7 +19,15 @@ module.exports = {
         new HTMLPlugin({
             template: './src/index.html'
         }),
-        new CleanWebpackPlugin()
-
-    ]
+        new CleanWebpackPlugin(),
+     
+    ],
+    module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+          },
+        ],
+      },
 }

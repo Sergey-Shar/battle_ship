@@ -42,7 +42,7 @@ html {
     border: 1rem solid rgba(6, 25, 247, 0.15);
 }
 
-.playing-field__marker {
+.marker {
     position: absolute;
     top: 0;
     left: 0;
@@ -52,13 +52,15 @@ html {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    font-size: 16rem;
+    
 }
 
 .marker-row {
     left: -35rem;
 }
 
-.maker-column {
+.marker-column {
     top: -35rem;
 }
 

@@ -1,69 +1,82 @@
-export class Mouse {
-    item = null
+export default  class Mouse {
+	element = null;
 
-    under = false;
-    pUnder = false;
+	under = false;
+	pUnder = false;
 
-    x = null;
-    y = null;
+	x = null;
+	y = null;
 
-    pX = null;
-    pY = null;
+	pX = null;
+	pY = null;
 
-    left = false;
-    pLeft = false;
+	left = false;
+	pLeft = false;
 
-    delta = 0;
-    pDelta = 0;
+	delta = 0;
+	pDelta = 0;
 
-    constructor (item) {
-        this.item = item;
+	constructor(element) {
+		this.element = element;
 
-        const update = (event,state) => {
-            this.changesState()
-            this.x = event.clientX;
-            this.y = event.clientY;
-            this.delta = 0;
-            this.under = state;
-        }
+		const update = (e) => {
+			this.x = e.clientX;
+			this.y = e.clientY;
+			this.delta = 0;
+			this.under = true;
+		};
 
-        item.addEventListener('mousemove',(event)=> {
-            this.changesState()
-            update(event, true)
-        });
-        item.addEventListener('mouseenter',(event) => {
-            this.changesState()
-            update(event, true)
-        });
-        item.addEventListener('mouseleave',(event) => {
-            this.changesState()
-            update(event, false)
-        });
-        item.addEventListener('mousedown',(event) => {
-            this.changesState()
-            update(event, true)
-            event.button === 0 && (this.left = true);
-        });
-        item.addEventListener('mouseup',(event) => {
-            this.changesState()
-            update(event, true)
-            event.button === 0 && (this.left = false);
-        });
-        item.addEventListener('wheel',(event) => {
-            this.changesState()
-            update(event, true)
-            this.delta = event.deltaY > 0 ? 1 : -1;
-        });
-    }
+		element.addEventListener("mousemove", (e) => {
+			this.tick();
+			update(e);
+		});
 
-    changesState () {
-        this.pX = this.x;
-        this.pY = this.y;
-        this.pUnder = this.under;
-        this.pLeft = this.left;
-        this.pDeta = this.delta;
-        this.delta = 0;
-    }
-    
+		element.addEventListener("mouseenter", (e) => {
+			this.tick();
+			update(e);
+		});
 
+		element.addEventListener("mouseleave", (e) => {
+			this.tick();
+			update(e);
+
+			this.under = false;
+		});
+
+		element.addEventListener("mousedown", (e) => {
+			this.tick();
+			update(e);
+
+			if (e.button === 0) {
+				this.left = true;
+			}
+		});
+
+		element.addEventListener("mouseup", (e) => {
+			this.tick();
+			update(e);
+
+			if (e.button === 0) {
+				this.left = false;
+			}
+		});
+
+		element.addEventListener("wheel", (e) => {
+			this.tick();
+
+			this.x = e.clientX;
+			this.y = e.clientY;
+			this.delta = e.deltaY > 0 ? 1 : -1;
+			this.under = true;
+		});
+	}
+
+	tick() {
+		this.pX = this.x;
+		this.pY = this.y;
+		this.pUnder = this.under;
+		this.pLeft = this.left;
+		this.pDelta = this.delta;
+		this.delta = 0;
+	}
 }

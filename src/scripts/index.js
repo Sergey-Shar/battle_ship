@@ -1,11 +1,13 @@
 import style from  '../styles/style.css';
-import { App } from './components/App';
-import { Preparation } from './states/Preparation';
+import Application from  './components/Application';
+import PreparationScene from './scenes/PreparationScene.js';
+import ComputerScene from './scenes/ComputerScene';
 
 
+const app = new Application({
+	preparation: PreparationScene,
+	computer: ComputerScene,
+});
 
-const app = new App({
-    preparation : Preparation
-})
-app.start('preparation')
+app.start("preparation");
 

@@ -1,114 +1,203 @@
 * {
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	user-select: none;
 }
 
-html {
-    font-size: 1px;
-}
-
-.wrapper {
-    width: 1000rem;
-    height: 700rem;
-    margin: 0 auto;
-}
-
-.header__title {
-    text-align: center;
-    padding: 30rem;
-    font-size: 50rem;
+body {
+	width: 100vw;
+	height: 100vh;
 }
 
 .app {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 50rem;
+	width: 1000px;
+	margin: 0 auto;
 }
 
-.playing-field {
-    position: relative;
+.app-header {
+	text-align: center;
+	padding: 30px;
 }
 
-.playing-field__table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-color: rgba(40, 46, 250, 0.05);
+.app-body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
-.playing-field__item {
-    position: relative;
-    width: 32rem;
-    height: 32rem;
-    border: 1rem solid rgba(6, 25, 247, 0.15);
+.app-subtitle {
+	color: gray;
 }
 
-.playing-field__marker {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 32rem;
-    height: 32rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+
+.battlefield {
+	position: relative;
+}
+
+.battlefield-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: rgba(40, 46, 250, 0.05);
+}
+
+.battlefield-item {
+	position: relative;
+	width: 32px;
+	height: 32px;
+	border: 1px solid rgba(6, 25, 247, 0.15);
+}
+
+.battlefield-item__active {
+	background: rgba(123, 121, 255, 0.2);
+}
+
+.marker {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.battlefield-status {
+	text-align: center;
+	padding: 20px;
 }
 
 .marker-row {
-    left: -35rem;
+	left: -35px;
 }
 
-.maker-column {
-    top: -35rem;
+.marker-column {
+	top: -35px;
 }
 
 .ship {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: -3rem;
-    border: 3rem solid #0400ff;
-    background-color: rgba(0, 55, 255, 0.45);
-    height: 32rem;
-    width: 32rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: -3px;
+	border: 3px solid #0400ff;
+	background: rgba(0, 55, 255, 0.45);
+	width: 32px;
+	height: 32px;
+    cursor: grab;
+}
+.ship:active{
+	cursor: grabbing;
 }
 
-.ship__row-1 {}
 
-.ship__row-2 {
-    width: 65rem;
+.ship-row-2 {
+	width: 65px;
 }
 
-.ship__row-3 {
-    width: 98rem;
+.ship-row-3 {
+	width: 98px;
 }
 
-.ship__row-4 {
-    width: 131rem;
+.ship-row-4 {
+	width: 131px;
 }
 
-.ship__column-1 {}
 
-.ship__column-2 {
-    height: 65rem;
+.ship-column-2 {
+	height: 65px;
 }
 
-.ship__column-3 {
-    height: 98rem;
+.ship-column-3 {
+	height: 98px;
 }
 
-.ship__column-4 {
-    height: 131rem;
+.ship-column-4 {
+	height: 131px;
 }
 
-.app__buttons {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.app-actions {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.app__btn {
-    padding: 10rem;
-    cursor: pointer;
+.app-action {
+	width: 210px;
+	padding: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.shot {
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.shot-missed {
+	color: "black";
+}
+
+.shot-wounded {
+	background: #fbdede;
+	z-index: 1;
+}
+
+.shot-wounded::after {
+	content: " ";
+	width: calc(32px * 1.3);
+	height: calc(32px * 1.3);
+	border-top: 2px solid red;
+	position: absolute;
+	z-index: -1;
+	transform: rotate(45deg);
+	top: 9px;
+	left: -20px;
+}
+
+.shot-wounded::before {
+	content: " ";
+	width: calc(32px * 1.3);
+	height: calc(32px * 1.3);
+	border-top: 2px solid red;
+	position: absolute;
+	z-index: -1;
+	transform: rotate(-45deg);
+	top: 9px;
+	left: 9px;
+}
+
+.shot-killed {
+	margin: -3px;
+	border: 3px solid red;
+}
+
+.hidden {
+	display: none;
+}
+
+
+
+.app-chatinput {
+	width: 100%;
+	height: 35px;
+	font-size: 25px;
+	text-align: left;
+}
+
+
+.app-message {
+	text-align: left;
+	color: #3c3c3c;
+	font-size: 16px;
+	margin-top: 10px;
 }
